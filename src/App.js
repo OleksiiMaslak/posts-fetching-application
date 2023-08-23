@@ -1,35 +1,34 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from "react";
-import Counter from './components/Counter';
-import './styles/App.css'
+import './styles/App.css';
+import PostList from './components/PostList';
+import MyButton from './components/UI/button/MyButton';
+import MyInput from './components/UI/input/MyInput';
+import PostForm from './components/PostForm';
 
 
 function App() {
+  
 
-  const [value, setValue] = useState('input text')
+          const [posts, setPosts] = useState([
+            {id:1, title:'JaBaScript', body: 'desctiption'},
+            {id:2, title:'JaBaScript 2', body: 'desctiption'},
+            {id:3, title:'JaBaScript 3', body: 'desctiption'},
+          ])
 
+          const createPost = (newPost) =>{
+            setPosts([...posts, newPost])
+          }
 
+          
 
 
 
   return (
     <div className="App">
-      
-      
-      <div className='post'>
-        <div className='post-content'>
-          <strong>1. Javascript</strong>
-          <div> Javascript - programming langualge </div>
+      <PostForm create={createPost}/>
 
-        </div>
-        <div className='post__btns'>
-          <button>Delete</button>
-        </div>
-
-      </div>
-
-      
-
+      <PostList posts={posts} title={"JS post list"} />
     </div>
   );
 }

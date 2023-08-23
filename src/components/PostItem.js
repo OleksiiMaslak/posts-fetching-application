@@ -1,19 +1,26 @@
 import React from "react";
+import MyButton from "./UI/button/MyButton";
 
-const PostItem =()=>{
+const PostItem = (props) =>{
+
+
     return(
         <div>
             <div className='post'>
                 <div className='post-content'>
-                <strong>1. Javascript</strong>
-                <div> Javascript - programming langualge </div>
+                    <strong>{props.number}. {props.post.title}</strong>
+                    <div> 
+                    {props.post.body}
+                    </div>
 
                 </div>
                 <div className='post__btns'>
-                <button>Delete</button>
+                    <MyButton>Delete</MyButton>
                 </div>
 
             </div>
         </div>
     )
 }
+
+export default PostItem;

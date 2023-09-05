@@ -1,17 +1,17 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useState } from "react";
-import './styles/App.css';
-import PostList from './components/PostList';
-import MyButton from './components/UI/button/MyButton';
-import PostForm from './components/PostForm';
-import PostFilter from './components/PostFilter';
-import MyModal from './components/UI/MyModal/MyModal';
-import { usePosts } from './hooks/usePosts';
-import PostService from './API/PostService';
-import Loader from './components/UI/Loader/Loader';
-import { useFetching } from './hooks/useFetching';
-import { getPageCount, getPagesArray,  } from './utils/pages';
-import Pagination from './components/UI/pagination/Pagination';
+import '../../styles/App.css';
+import PostList from '../../components/PostList';
+import MyButton from '../../components/UI/button/MyButton';
+import PostForm from '../../components/PostForm';
+import PostFilter from '../../components/PostFilter';
+import MyModal from '../../components/UI/MyModal/MyModal';
+import { usePosts } from '../../hooks/usePosts';
+import PostService from '../../API/PostService';
+import Loader from '../../components/UI/Loader/Loader';
+import { useFetching } from '../../hooks/useFetching';
+import { getPageCount, getPagesArray,  } from '../../utils/pages';
+import Pagination from '../../components/UI/pagination/Pagination';
 
 
 function App() {
@@ -63,7 +63,10 @@ function App() {
 
   return (
       <div className="App">
-          <button onClick={fetchPosts}>Get posts</button>
+        <div className='navbar'>
+                <div className='navbar__links'></div>
+        </div>
+          {/* <button onClick={fetchPosts}>Get posts</button> */}
           <MyButton
               style={{ marginTop: "30px" }}
               onClick={() => setModal(true)}

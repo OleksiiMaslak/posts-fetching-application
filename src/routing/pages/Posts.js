@@ -14,7 +14,7 @@ import { getPageCount, getPagesArray,  } from '../../utils/pages';
 import Pagination from '../../components/UI/pagination/Pagination';
 
 
-function App() {
+function Posts() {
   
 
           const [posts, setPosts] = useState([])
@@ -105,4 +105,4 @@ function App() {
   );
 }
 
-export default App;
+export default Posts;

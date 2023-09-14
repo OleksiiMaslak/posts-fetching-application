@@ -1,19 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
 import ErrorPage from "./pages/ErrorPage";
-import {routesArray} from './pages/Router'
+import {privateRoutesArray, publicRoutesArray} from './pages/Router'
 
 
+console.log(publicRoutesArray);
 
+const isAuth = true;
 
-const router  = createBrowserRouter([
-    {
+const router  = createBrowserRouter( isAuth ? 
+    [{
         path : '/',
         errorElement: <ErrorPage/>,
         element: <Layout/>,
-        children: routesArray
-    },
-
-]);
+        children: privateRoutesArray
+    }] : [{
+            path : '/',
+            errorElement: <ErrorPage/>,
+            element: <Layout/>,
+            children: publicRoutesArray
+        }]
+);
 
 export default router;

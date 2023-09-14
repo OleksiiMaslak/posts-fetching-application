@@ -2,10 +2,11 @@ import React from 'react';
 import Home from './Home';
 import Posts from './Posts';
 import PostIdPage from './PostIdPage';
-import About from './About'
+import About from './About';
+import Login from './Login';
 
 
-export const routes = [
+ const privateRoutes = [
     {
         element: <Home/>,
         index: true,
@@ -27,25 +28,37 @@ export const routes = [
     
 ];
 
-export const routesArray = [{key: 200}];
+const publicRoutes = [
+    {
+        element: <Login/>,
+        index: true,
+    },
+        
+];
+
+export const privateRoutesArray = [{key: 200}];
  (function createRoutes () {
     
-    for (let i = 0; i < routes.length; i++) {
+    for (let i = 0; i < privateRoutes.length; i++) {
         
-        const el = routes[i];
+        const el = privateRoutes[i];
         if (i == 0 ){
 
-            routesArray.push({ element : el.element, index: true})
+            privateRoutesArray.push({ element : el.element, index: true})
             
         } else {
-            routesArray.push({ path : el.path, element : el.element})
+            privateRoutesArray.push({ path : el.path, element : el.element})
         }
         
         
     };
 
-    return routesArray;
+    return privateRoutesArray;
 })()
+
+
+export const publicRoutesArray = [{key: 250}, {path: '/', element: <Login/>}];
+
 
 
 

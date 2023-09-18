@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import router from './routing/Routing'
+import Routing from './routing/Routing';
+import { AuthContext } from './context/context';
 
 import './styles/App.css';
 
@@ -8,12 +9,27 @@ import './styles/App.css';
 
 
 function App() {
+
+    const [isAuth, setIsAuth] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (localStorage.getItem('auth')){
+            setIsAuth(true)
+        }
+        setIsLoading(false)
+    }, [])
+
     
     return(
-        <>
-            
-            <RouterProvider router={router}/>
-        </>
+        <AuthContext.Provider value={{
+            isAuth, 
+            setIsAuth,
+            isLoading
+        }}>
+
+            <RouterProvider router={Routing()}/>
+        </AuthContext.Provider>
     )
 
 }

@@ -6,7 +6,7 @@ const About = () => {
       <div className='navbar'>
                   <div className='navbar__links'></div>
       </div>
-      <div>This page was created by ME ;)</div>
+      <div>This page was created by Oleksii Maslak in 2023</div>
     </>
   )
 }

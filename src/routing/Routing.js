@@ -3,23 +3,15 @@ import Layout from "./pages/Layout";
 import ErrorPage from "./pages/ErrorPage";
 import { privateRoutesArray, publicRoutesArray } from './pages/Router';
 import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 
 
 function Routing() {
 
+  const isAuth = useSelector(state => state)
 
 
-const [isAuth, setIsAuth] = useState(false);
-
-useEffect(() => {
-    setTimeout( () => {
-        setIsAuth(true);
-        return isAuth;
-    }, 5000 )
-}, [])
-
-
-  const router = createBrowserRouter(isAuth ?
+  const router = createBrowserRouter((isAuth || window.localStorage.auth) ?
     [{
       path: '/',
       errorElement: <ErrorPage />,

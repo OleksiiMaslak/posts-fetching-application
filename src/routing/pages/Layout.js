@@ -1,19 +1,23 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import MyButton from '../../components/UI/button/MyButton';
+import { actions } from '../../store/Authentification/Authentification.slice';
+import { useDispatch } from 'react-redux';
 
 const Layout = () => {
 
-  const logout = () =>{
+  const dispatch = useDispatch()
+  const closeAccess = actions.closeAccess;
 
-    // функция для удаления данных при выходе 
-    // setIsAuth(false);
-    // localStorage.removeItem('auth')
+  const logout = () =>{
+    dispatch(closeAccess)
+    localStorage.removeItem('auth')
+    window.location.reload()
   }
   return (
     <div>
         <div className='navbar'>
-                <MyButton>
+                <MyButton onClick={logout}>
                   Exit
                 </MyButton>
                 <div className='navbar__links'>

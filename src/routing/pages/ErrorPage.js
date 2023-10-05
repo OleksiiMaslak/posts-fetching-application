@@ -16,8 +16,8 @@ const ErrorPage = () => {
                 </div>
         </div>
         <h1>Oops!</h1>
-        <p>Sorry, something went wrong</p>
-        <p>{error.statusText ?? error.message}</p>
+        <p>Sorry, it looks like you don't have access</p>
+        <p>Please go to Posts page and log in again</p>
     </div>
   )
 }
